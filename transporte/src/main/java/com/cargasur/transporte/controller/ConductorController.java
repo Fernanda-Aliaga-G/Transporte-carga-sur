@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/conductor")
@@ -22,11 +23,15 @@ public class ConductorController {
         String password = loginData.get("password");
 
         return conductorService.login(correo, password)
-                .map(conductor -> ResponseEntity.ok(Map.of(
-                        "id", conductor.getId(),
-                        "nombre", conductor.getNombre(),
-                        "correo", conductor.getCorreo()
-                )))
-                .orElse(ResponseEntity.status(401).body("Credenciales inválidas"));
+                .map(conductor -> {
+                    Map<String, Object> datos = new HashMap<>();
+                    datos.put("id", conductor.getId());
+                    datos.put("nombre", conductor.getNombre());
+                    datos.put("correo", conductor.getCorreo());
+                    return ResponseEntity.ok(datos);
+                })
+                .orElseGet(() -> ResponseEntity.status(401)
+                        .body(Map.of("error", "Credenciales inválidas")));
     }
+
 }

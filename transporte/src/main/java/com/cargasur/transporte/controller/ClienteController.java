@@ -1,10 +1,14 @@
 package com.cargasur.transporte.controller;
 
 import com.cargasur.transporte.model.Orden;
+import com.cargasur.transporte.service.EventoService;
 import com.cargasur.transporte.service.OrdenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.cargasur.transporte.model.Evento;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/cliente")
@@ -13,6 +17,8 @@ public class ClienteController {
 
     @Autowired
     private OrdenService ordenService;
+    @Autowired
+    private EventoService eventoService;
 
     @PostMapping("/crearOrdenWeb")
     public ResponseEntity<Orden> crearOrdenWeb(@RequestBody Orden orden) {

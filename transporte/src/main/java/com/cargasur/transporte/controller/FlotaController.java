@@ -23,8 +23,8 @@ public class FlotaController {
     }
     @PostMapping("/asignarAutomatica")
     public ResponseEntity<String> asignarFlota(@RequestParam Long ordenId) {
-        String resultado = flotaService.asignarAutomatica(ordenId);
-        return ResponseEntity.ok(resultado);
+        flotaService.asignarAutomatica(ordenId);  // Corregido: usas ordenId
+        return ResponseEntity.ok("Asignación automática completada"); // Corregido: mensaje estático
     }
     @GetMapping("/mantenimiento/verificarEstado/{patente}")
     public ResponseEntity<String> verificarEstado(@PathVariable String patente) {

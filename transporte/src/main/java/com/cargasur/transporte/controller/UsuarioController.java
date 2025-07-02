@@ -18,7 +18,9 @@ public class UsuarioController {
     @GetMapping("/rol")
     public ResponseEntity<?> obtenerRol(@RequestParam String correo) {
         return usuarioService.obtenerRolPorCorreo(correo)
-                .map(rol -> ResponseEntity.ok(Map.of("rol", rol)))
+                .<ResponseEntity<?>>map(rol -> ResponseEntity.ok(Map.of("rol", rol)))
                 .orElse(ResponseEntity.status(404).body("Usuario no encontrado"));
     }
+
+
 }

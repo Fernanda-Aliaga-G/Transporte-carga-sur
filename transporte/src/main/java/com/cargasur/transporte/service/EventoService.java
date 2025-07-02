@@ -32,9 +32,4 @@ public class EventoService {
                 .map(viaje -> eventoRepository.findByViajeIdOrderByFechaEventoAsc(viaje.getId()))
                 .orElse(List.of());
     }
-    public List<Evento> obtenerEventosPorOrden(Long ordenId) {
-        return viajeRepository.findByOrdenId(ordenId)
-                .map(viaje -> eventoRepository.findByViajeIdOrderByFechaEventoAsc(viaje.getId()))
-                .orElse(List.of());
-    }
 }

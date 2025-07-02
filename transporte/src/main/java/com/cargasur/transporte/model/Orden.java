@@ -13,6 +13,10 @@ public class Orden {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "flota_id")
+    private Flota flota;
+
     private String cliente;
     private String origen;
     private String destino;

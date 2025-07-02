@@ -16,5 +16,5 @@ public class Notificacion {
     private Long ordenId;
     private String tipo;
     private String mensaje;
-    private LocalDateTime fechaHora;
+    private LocalDateTime fechaEnvio;
 }

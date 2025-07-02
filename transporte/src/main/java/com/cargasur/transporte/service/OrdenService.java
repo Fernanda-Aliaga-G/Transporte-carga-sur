@@ -15,6 +15,10 @@ public class OrdenService {
         return ordenRepository.save(orden);
     }
 
+    public Orden crearOrden(Orden orden) {
+        return ordenRepository.save(orden);
+    }
+
     public String obtenerEstadoOrden(Long id) {
         return ordenRepository.findById(id)
                 .map(Orden::getEstado)
