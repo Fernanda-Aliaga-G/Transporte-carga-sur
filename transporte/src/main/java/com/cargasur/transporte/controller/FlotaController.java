@@ -39,4 +39,11 @@ public class FlotaController {
         List<Flota> flotas = flotaService.obtenerMantencionesPendientes();
         return ResponseEntity.ok(flotas);
     }
+
+    @PostMapping("/registrar")
+    public ResponseEntity<Flota> registrar(@RequestBody Flota flota) {
+        Flota nueva = flotaService.registrarFlota(flota);
+        return ResponseEntity.ok(nueva);
+    }
+
 }

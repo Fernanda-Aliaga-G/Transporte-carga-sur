@@ -16,4 +16,7 @@ public class ConductorService {
     public Optional<Conductor> login(String correo, String password) {
         return conductorRepository.findByCorreoAndPassword(correo, password);
     }
+    public Conductor registrarConductor(Conductor conductor) {
+        return conductorRepository.save(conductor);
+    }
 }

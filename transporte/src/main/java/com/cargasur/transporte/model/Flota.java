@@ -13,14 +13,12 @@ public class Flota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public boolean isDisponible() {
-        return disponible;
-    }
-
     private String patente;
     private String ubicacion;
     private Integer capacidad;
     private String estadoTecnico;
-    private Boolean disponible;
+    private boolean disponible;  // <- CAMBIADO A boolean
     private LocalDate fechaProximaMantencion;
+
+
 }

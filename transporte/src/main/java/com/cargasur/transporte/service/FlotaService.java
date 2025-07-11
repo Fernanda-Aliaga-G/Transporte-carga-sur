@@ -66,5 +66,9 @@ public class FlotaService {
         flota.setDisponible(false);
         flotaRepository.save(flota);
     }
+    public Flota registrarFlota(Flota flota) {
+        return flotaRepository.save(flota);
+    }
+
 
 }

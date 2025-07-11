@@ -34,4 +34,10 @@ public class ConductorController {
                         .body(Map.of("error", "Credenciales inválidas")));
     }
 
+    @PostMapping("/registrar")
+    public ResponseEntity<?> registrar(@RequestBody Conductor conductor) {
+        Conductor creado = conductorService.registrarConductor(conductor);
+        return ResponseEntity.ok(creado);
+    }
+
 }
